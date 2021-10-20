@@ -10,22 +10,25 @@ class mySet : public std::set<int>{
                                 for (auto e2 : *this)
                                         if (e1 == e2)
                                                 c.insert(e1);
-                        return *this;
+			            
+                        return c;
 		}
-		mySet intersect(const mySet& a) {
+		mySet intersect(const mySet& a)
+ {
 			std::set<int> c = a;
-			merge(c);
-			return *this;
+                        mySet b = *this;
+			b.merge(c);
+			return b;
 		}
 
 		mySet minus(const mySet& a) {
 			mySet r;
-			r = *this;
-			r.combine(a);
-			intersect(a);
+                        mySet b;
+			r = this->combine(a);
+			b = this->intersect(a);
 			for (auto e : r)
-				erase(e);
-			return *this;
+				b.erase(e);
+			return b;
 		}	
 
 };
