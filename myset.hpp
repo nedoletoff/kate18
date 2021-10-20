@@ -9,8 +9,8 @@ class mySet : public std::set<int>{
                         for (auto e1 : a)
                                 for (auto e2 : *this)
                                         if (e1 == e2)
-                                                c.insert(e1);                                                                           *this = c;
-                        return *this;;
+                                                c.insert(e1);
+                        return *this;
 		}
 		mySet intersect(const mySet& a) {
 			std::set<int> c = a;
